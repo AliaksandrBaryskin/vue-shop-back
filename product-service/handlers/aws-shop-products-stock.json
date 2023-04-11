@@ -1,0 +1,52 @@
+{
+  "AWS_Shop_Products_Stock": [
+    {
+      "PutRequest": {
+        "Item": {
+          "product_id": { "S": "7567ec4b-b10c-48c5-9345-fc73c48a80aa" },
+          "count": { "N": "4" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "product_id": { "S": "7567ec4b-b10c-48c5-9345-fc73c48a80a0" },
+          "count": { "N": "7" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "product_id": { "S": "7567ec4b-b10c-48c5-9345-fc73c48a80a2" },
+          "count": { "N": "6" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "product_id": { "S": "7567ec4b-b10c-48c5-9345-fc73c48a80a1" },
+          "count": { "N": "12" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "product_id": { "S": "7567ec4b-b10c-48c5-9345-fc73c48a80a4" },
+          "count": { "N": "7" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "product_id": { "S": "7567ec4b-b10c-48c5-9345-fc73348a80a5" },
+          "count": { "N": "8" }
+        }
+      }
+    }
+  ]
+}
