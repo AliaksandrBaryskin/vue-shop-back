@@ -1,0 +1,32 @@
+service: product-service
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: us-east-1
+  profile: Aliaksandr_Baryskin
+
+plugins:
+  - serverless-webpack
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+
+functions:
+  getProductsList:
+    handler: handlers/getProductsList.getProductsList
+    events:
+      - http:
+          path: products
+          method: get
+          cors: true
+  getProductsById:
+    handler: handlers/getProductsById.getProductsById
+    events:
+      - http:
+          path: products/{productId}
+          method: get
+          cors: true
