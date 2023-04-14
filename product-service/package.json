@@ -4,6 +4,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@aws-sdk/lib-dynamodb": "^3.312.0",
     "@mdi/font": "^5.9.55",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",

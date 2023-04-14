@@ -6,6 +6,9 @@ provider:
   stage: dev
   region: us-east-1
   profile: Aliaksandr_Baryskin
+  environment:
+    TABLE_NAME_PRODUCTS: 'AWS_Products'
+    TABLE_NAME_PRODUCTS_STOCK: 'AWS_Products_Stock'
 
 plugins:
   - serverless-webpack
@@ -29,4 +32,11 @@ functions:
       - http:
           path: products/{productId}
           method: get
+          cors: true
+  createProduct:
+    handler: handlers/createProduct.createProduct
+    events:
+      - http:
+          path: products
+          method: post
           cors: true
