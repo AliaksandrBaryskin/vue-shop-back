@@ -6,14 +6,14 @@ provider:
   stage: dev
   region: us-east-1
   profile: Aliaksandr_Baryskin
+  environment:
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
+    NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000'
+    TABLE_NAME_PRODUCTS: 'AWS_Products'
+    TABLE_NAME_PRODUCTS_STOCK: 'AWS_Products_Stock'
 
 plugins:
   - serverless-webpack
-
-custom:
-  webpack:
-    webpackConfig: ./webpack.config.js
-    includeModules: true
 
 functions:
   getProductsList:
@@ -29,4 +29,11 @@ functions:
       - http:
           path: products/{productId}
           method: get
+          cors: true
+  createProduct:
+    handler: handlers/createProduct.createProduct
+    events:
+      - http:
+          path: products
+          method: post
           cors: true
