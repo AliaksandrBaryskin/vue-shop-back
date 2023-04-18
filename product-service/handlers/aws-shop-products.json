@@ -1,0 +1,64 @@
+{
+  "AWS_Shop_Products": [
+    {
+      "PutRequest": {
+        "Item": {
+          "description": { "S": "Series about kids that want to be heroes" },
+          "id": { "S": "7567ec4b-b10c-48c5-9345-fc73c48a80aa" },
+          "price": { "N": "2.4" },
+          "title": { "S": "My Hero Academia" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "description": { "S": "Series about football egoistic ambitions" },
+          "id": { "S": "7567ec4b-b10c-48c5-9345-fc73c48a80a0" },
+          "price": { "N": "2" },
+          "title": { "S": "Blue Lock" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "description": { "S": "Series about new scientific discoveries after turning people into stones" },
+          "id": { "S": "7567ec4b-b10c-48c5-9345-fc73c48a80a2" },
+          "price": { "N": "3.2" },
+          "title": { "S": "Dr. Stone" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "description": { "S": "Series about confrontation between people and titans" },
+          "id": { "S": "7567ec4b-b10c-48c5-9345-fc73c48a80a1" },
+          "price": { "N": "4" },
+          "title": { "S": "Attack on Titan" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "description": { "S": "Series about a man that got possibility to kill criminals by writing names in notebook" },
+          "id": { "S": "7567ec4b-b10c-48c5-9345-fc73c48a80a4" },
+          "price": { "N": "4.2" },
+          "title": { "S": "Death Note" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "description": { "S": "Series about life of gods who are hiding in human world" },
+          "id": { "S": "7567ec4b-b10c-48c5-9345-fc73c48a80a5" },
+          "price": { "N": "2.7" },
+          "title": { "S": "Noragami Aragoto" }
+        }
+      }
+    }
+  ]
+}
