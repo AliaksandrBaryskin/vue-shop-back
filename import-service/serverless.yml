@@ -13,6 +13,10 @@ provider:
       Action: ['s3:*']
       Resource: 
         - 'arn:aws:s3:::vue-shop-import-bucket/*'
+    - Effect: 'Allow'
+      Action: ['sqs:SendMessage']
+      Resource: 
+        - 'arn:aws:sqs:us-east-1:222048563468:catalogItemsQueue'
 
 plugins:
   - serverless-webpack

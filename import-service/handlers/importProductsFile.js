@@ -1,6 +1,7 @@
 import AWS from 'aws-sdk';
 
 export const importProductsFile = async (event) => {
+    console.log(`importProductsFile: ${JSON.stringify(event.queryStringParameters)}`);
     const s3 = new AWS.S3({ region: 'us-east-1' });
     const name = event.queryStringParameters?.name;
     if (!name) {
@@ -16,6 +17,7 @@ export const importProductsFile = async (event) => {
             ContentType: 'application/csv',
             Expires: 60,
         });
+        console.log(`importProductsFile: uploadUrl - ${JSON.stringify(uploadUrl)}`);
         return {
             statusCode: 200,
             headers: {
