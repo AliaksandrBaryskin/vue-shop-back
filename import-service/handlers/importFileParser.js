@@ -18,11 +18,9 @@ export const importFileParser = async (event) => {
                 stream
                     .pipe(csvParser())
                     .on('data', async (data) => {
-                        const message = { availableProduct: data };
-
                         await sqs.sendMessage({
                             QueueUrl: 'https://sqs.us-east-1.amazonaws.com/222048563468/catalogItemsQueue',
-                            MessageBody: JSON.stringify(message)
+                            MessageBody: JSON.stringify(data)
                         }).promise();
                     })
                     .on('error', (err) => reject(err))

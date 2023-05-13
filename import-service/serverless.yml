@@ -8,6 +8,12 @@ provider:
   profile: Aliaksandr_Baryskin
   environment:
     AWS_GENERAL_REGION: 'us-east-1'
+  httpApi:
+    cors: 
+      allowedOrigins: ["*"]
+      allowedHeaders: ["*"]
+      allowedMethods: ["*"]
+      allowCredentials: true
   iamRoleStatements:
     - Effect: 'Allow'
       Action: ['s3:*']
@@ -17,6 +23,31 @@ provider:
       Action: ['sqs:SendMessage']
       Resource: 
         - 'arn:aws:sqs:us-east-1:222048563468:catalogItemsQueue'
+
+resources:
+  Resources:
+    GatewayResponseAccessDenied:
+      Type: "AWS::ApiGateway::GatewayResponse"
+      Properties:
+        ResponseParameters:
+          "gatewayresponse.header.Access-Control-Allow-Origin": "'*'"
+          "gatewayresponse.header.Access-Control-Allow-Headers": "'*'"
+          "gatewayresponse.header.Access-Control-Allow-Methods": "'*'"
+        ResponseType: "ACCESS_DENIED"
+        RestApiId:
+          Ref: "ApiGatewayRestApi"
+        StatusCode: '403'
+    GatewayResponseUnauthorized:
+      Type: "AWS::ApiGateway::GatewayResponse"
+      Properties:
+        ResponseParameters:
+          "gatewayresponse.header.Access-Control-Allow-Origin": "'*'"
+          "gatewayresponse.header.Access-Control-Allow-Headers": "'*'"
+          "gatewayresponse.header.Access-Control-Allow-Methods": "'*'"
+        ResponseType: "UNAUTHORIZED"
+        RestApiId:
+          Ref: "ApiGatewayRestApi"
+        StatusCode: '401'
 
 plugins:
   - serverless-webpack
@@ -38,6 +69,9 @@ functions:
               querystrings:
                 name: true
           cors: true
+          authorizer:
+            arn: 'arn:aws:lambda:us-east-1:222048563468:function:authorization-service-dev-basicAuthorizer'
+            type: 'request'
   importFileParser:
     handler: handlers/importFileParser.importFileParser
     events:
