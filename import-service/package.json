@@ -1,0 +1,59 @@
+{
+    "name": "import-service",
+    "version": "1.0.0",
+    "description": "Serverless aws-nodejs-typescript template",
+    "main": "serverless.ts",
+    "scripts": {
+        "start": "sls offline",
+        "deploy": "sls deploy",
+        "test": "jest"
+    },
+    "engines": {
+        "node": ">=14.15.0"
+    },
+    "dependencies": {
+        "@aws-sdk/client-s3": "^3.319.0",
+        "@aws-sdk/s3-request-presigner": "^3.319.0",
+        "@middy/core": "^3.4.0",
+        "@middy/http-json-body-parser": "^3.4.0",
+        "aws-sdk": "^2.1365.0",
+        "crypto": "^1.0.1",
+        "csv-parser": "^3.0.0",
+        "source-map-support": "^0.5.21"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.21.4",
+        "@babel/preset-env": "^7.21.4",
+        "@types/jest": "^24.0.19",
+        "@typescript-eslint/eslint-plugin": "^4.18.0",
+        "@typescript-eslint/parser": "^4.19.0",
+        "@vue/cli-plugin-babel": "~4.5.0",
+        "@vue/cli-plugin-e2e-cypress": "^4.5.12",
+        "@vue/cli-plugin-eslint": "~4.5.0",
+        "@vue/cli-plugin-router": "~4.5.0",
+        "@vue/cli-plugin-typescript": "~4.5.0",
+        "@vue/cli-plugin-unit-jest": "~4.5.0",
+        "@vue/cli-plugin-vuex": "~4.5.0",
+        "@vue/cli-service": "~4.5.0",
+        "@vue/eslint-config-prettier": "^6.0.0",
+        "@vue/eslint-config-typescript": "^7.0.0",
+        "@vue/test-utils": "^1.0.3",
+        "babel-loader": "^9.1.2",
+        "babel-plugin-source-map-support": "^2.2.0",
+        "cross-env": "^7.0.3",
+        "cypress": "^7.1.0",
+        "eslint": "^6.7.2",
+        "eslint-plugin-clean-regex": "^0.5.1",
+        "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-vue": "^6.2.2",
+        "prettier": "^2.2.1",
+        "sass": "^1.26.5",
+        "sass-loader": "^8.0.2",
+        "serverless-webpack": "^5.11.0",
+        "typescript": "~4.1.5",
+        "vue-template-compiler": "^2.6.11",
+        "vuetify-loader": "^1.7.2",
+        "webpack": "^5.78.0",
+        "webpack-node-externals": "^3.0.0"
+    }
+}

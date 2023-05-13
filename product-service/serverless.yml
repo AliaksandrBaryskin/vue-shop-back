@@ -9,6 +9,12 @@ provider:
   environment:
     TABLE_NAME_PRODUCTS: 'AWS_Products'
     TABLE_NAME_PRODUCTS_STOCK: 'AWS_Products_Stock'
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action: 
+        - sns:Publish
+      Resource: 
+        - 'arn:aws:sns:us-east-1:222048563468:createProductTopic'
 
 plugins:
   - serverless-webpack
@@ -17,6 +23,17 @@ custom:
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
+
+resources:
+  Resources:
+    AdditionalSubscription:
+      Type: AWS::SNS::Subscription
+      Properties:
+        Endpoint: 'sanya.boriskim@gmail.com'
+        Protocol: email
+        TopicArn: arn:aws:sns:us-east-1:222048563468:createProductTopic
+        FilterPolicyScope: 'MessageBody'
+        FilterPolicy: { price: [{ "numeric": [">", 3] }] }
 
 functions:
   getProductsList:
@@ -40,3 +57,9 @@ functions:
           path: products
           method: post
           cors: true
+  catalogBatchProcess:
+    handler: handlers/catalogBatchProcess.catalogBatchProcess
+    events:
+      - sqs:
+          batchSize: 5
+          arn: arn:aws:sqs:us-east-1:222048563468:catalogItemsQueue
