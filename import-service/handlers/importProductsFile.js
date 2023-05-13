@@ -13,7 +13,7 @@ export const importProductsFile = async (event) => {
     try {
         const uploadUrl = await s3.getSignedUrlPromise('putObject', {
             Bucket: 'vue-shop-import-bucket',
-            Key: `uploaded/${name}`,
+            Key: `parsed/${name}`,
             ContentType: 'application/csv',
             Expires: 60,
         });
